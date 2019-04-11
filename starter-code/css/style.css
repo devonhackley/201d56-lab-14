@@ -1,4 +1,7 @@
 /* TODO: Make it awesome */
+nav {
+  display: inline-flex;
+}
 body {
     width: 80%;
     margin: 0 auto;
