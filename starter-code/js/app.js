@@ -20,7 +20,7 @@ Cart.prototype.saveToLocalStorage = function() {
 Cart.prototype.removeItem = function(item) {
   // TODO: Fill in this instance method to remove one item from the cart.
   this.items.forEach((cartItem, index) => {
-      if (cartItem === item) {
+      if (cartItem.product === item) {
         this.items.splice(index, 1)
       }
   });
