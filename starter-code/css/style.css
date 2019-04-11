@@ -18,8 +18,10 @@ main section div header{
 }
 
 main {
-    width: 960px;
+    width: 100%;
     margin: 30px auto;
+    height: 540px !important;
+    overflow: scroll;
 }
 
 .deck {
@@ -27,7 +29,7 @@ main {
     padding: 10px;
 }
 .col-1 {
-    height: 300px;
+    height: 100px;
 }
 .card {
     width: 100%;
@@ -38,93 +40,6 @@ main {
     font-size: 25px !important;
     font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
