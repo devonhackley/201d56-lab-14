@@ -7,17 +7,21 @@ var cart = new Cart([]);
 
 var selectElement = document.getElementById('items');
 
+/********** Helper Functions *******************/
+const createTheElement = function(element, content, parent){
+  const newEle = document.createElement(element);
+  newEle.textContent = content;
+  parent.appendChild(newEle);
+};
+/*****************************************************************/
+
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
-
   //TODO: Add an <option> tag inside the form's select for each product
   Product.allProducts.forEach((prod) =>  {
-    const newOpt = document.createElement('option');
-    newOpt.textContent = prod.name;
-    selectElement.appendChild(newOpt);
+    createTheElement('option', prod.name, selectElement);
   })
-
 }
 
 // When someone submits the form, we need to add the selected item to the cart
@@ -58,9 +62,7 @@ function updateCartPreview() {
   const item = selectElement.options[selectElement.selectedIndex].text;
   const quantity = parseInt(document.getElementById('quantity').value);
   const parent = document.getElementById('cartContents');
-  const pTag = document.createElement('p');
-  pTag.textContent = `Item: ${item} Quantity: ${quantity}`;
-  parent.appendChild(pTag);
+  createTheElement('p', `Item: ${item} \u00A0 \u00A0 \u00A0 Quantity: ${quantity}`, parent);
 }
 
 // Set up the "submit" event listener on the form.
