@@ -1,10 +1,23 @@
 /* global Product, Cart */
 
 'use strict';
-
+var cart;
+const parent = document.getElementById('cartContents');
 // Set up an empty cart for use on this page.
-var cart = new Cart([]);
+const checkLocalStorage = () => {
+  if (localStorage['cart']) {
+    cart = new Cart(JSON.parse(localStorage['cart']));
+  } else {
+    cart = new Cart([]);
+  }
+}
 
+const renderCartContents = () => {
+  cart.items.forEach(item => {
+    createTheElement('p', `Item: ${item.product} \u00A0 \u00A0 \u00A0 Quantity: ${item.quantity}`, parent);
+  })
+  updateCounter();
+}
 var selectElement = document.getElementById('items');
 
 /********** Helper Functions *******************/
@@ -52,7 +65,7 @@ function addSelectedItemToCart() {
 // TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
   const counter = document.getElementById('itemCount');
-  counter.textContent = cart.items.length;
+  counter.textContent = `(${cart.items.length})`;
 }
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
@@ -61,7 +74,6 @@ function updateCartPreview() {
   // TODO: Add a new element to the cartContents div with that information
   const item = selectElement.options[selectElement.selectedIndex].text;
   const quantity = parseInt(document.getElementById('quantity').value);
-  const parent = document.getElementById('cartContents');
   createTheElement('p', `Item: ${item} \u00A0 \u00A0 \u00A0 Quantity: ${quantity}`, parent);
 }
 
@@ -74,3 +86,5 @@ catalogForm.addEventListener('submit', handleSubmit);
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
 populateForm();
+checkLocalStorage();
+renderCartContents();

@@ -1,8 +1,10 @@
 /* TODO: Make it awesome */
-nav {
-  display: inline-flex;
-}
-body {
+main {
     width: 80%;
     margin: 0 auto;
+}
+
+.deck {
+    width: 100%;
+    padding: 10px;
 }

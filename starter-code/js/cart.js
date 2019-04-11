@@ -16,12 +16,17 @@ function loadCart() {
 document.addEventListener('DOMContentLoaded', ()=>{
   renderCart();
 })
+function updateCounter() {
+  const counter = document.getElementById('itemCount');
+  counter.textContent = `(${cart.items.length})`;
+}
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
 function renderCart() {
   loadCart();
   clearCart();
   showCart();
+  updateCounter();
 }
 
 // Remove all of the rows (tr) in the cart table (tbody)
