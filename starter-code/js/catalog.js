@@ -62,7 +62,7 @@ function updateCartPreview() {
   const item = selectElement.options[selectElement.selectedIndex].text;
   const quantity = parseInt(document.getElementById('quantity').value);
   const parent = document.getElementById('cartContents');
-  createTheElement('p', `Item: ${item}           Quantity: ${quantity}`, parent);
+  createTheElement('p', `Item: ${item} \u00A0 \u00A0 \u00A0 Quantity: ${quantity}`, parent);
 }
 
 // Set up the "submit" event listener on the form.
