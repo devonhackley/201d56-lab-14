@@ -35,6 +35,7 @@ function populateForm() {
   Product.allProducts.forEach((prod) =>  {
     createTheElement('option', prod.name, selectElement);
   })
+  
 }
 
 // When someone submits the form, we need to add the selected item to the cart

@@ -1,10 +1,131 @@
 /* TODO: Make it awesome */
-main {
+body {
     width: 80%;
     margin: 0 auto;
 }
 
 .deck {
-    width: 100%;
-    padding: 10px;
+  width: 100%;
+  padding: 10px;
 }
+
+main section div header h1{
+  font-size: 16px !important;
+}
+main section div header{
+  padding: 0 !important;
+  background-color: white !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ul {
+  display: inline-flex;
+}
+
+li {
+  margin-right: 10px;
+}
+
+header, footer {
+  background-color: aquamarine;
+  position: relative;
+  padding: 10px 0 10px 10px;
+}
+
+
+header h1 {
+  font-size: 1.7em;
+  margin-bottom: 2px;
+}
+
