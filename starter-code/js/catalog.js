@@ -5,15 +5,18 @@
 // Set up an empty cart for use on this page.
 var cart = new Cart([]);
 
+var selectElement = document.getElementById('items');
+
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
 
   //TODO: Add an <option> tag inside the form's select for each product
-  var selectElement = document.getElementById('items');
-  for (var i in Product.allProducts) {
-
-  }
+  Product.allProducts.forEach((prod) =>  {
+    const newOpt = document.createElement('option');
+    newOpt.textContent = prod.name;
+    selectElement.appendChild(newOpt);
+  })
 
 }
 
@@ -23,7 +26,7 @@ function populateForm() {
 function handleSubmit(event) {
 
   // TODO: Prevent the page from reloading
-
+  event.preventDefault();
   // Do all the things ...
   addSelectedItemToCart();
   cart.saveToLocalStorage();
@@ -37,15 +40,27 @@ function addSelectedItemToCart() {
   // TODO: suss out the item picked from the select list
   // TODO: get the quantity
   // TODO: using those, add one item to the Cart
+  const product = selectElement.options[selectElement.selectedIndex].text;
+  const quantity = parseInt(document.getElementById('quantity').value);
+  cart.addItem(product, quantity);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  const counter = document.getElementById('itemCount');
+  counter.textContent = cart.items.length;
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
   // TODO: Get the item and quantity from the form
   // TODO: Add a new element to the cartContents div with that information
+  const item = selectElement.options[selectElement.selectedIndex].text;
+  const quantity = parseInt(document.getElementById('quantity').value);
+  const parent = document.getElementById('cartContents');
+  const pTag = document.createElement('p');
+  pTag.textContent = `Item: ${item} Quantity: ${quantity}`;
+  parent.appendChild(pTag);
 }
 
 // Set up the "submit" event listener on the form.
