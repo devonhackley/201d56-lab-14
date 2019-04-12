@@ -31,6 +31,10 @@ main {
 .col-1 {
     height: 100px;
 }
+.copy li {
+    word-spacing: 3px;
+    line-height: 20px;
+}
 .card {
     width: 100%;
 }
@@ -40,11 +44,6 @@ main {
     font-size: 25px !important;
     font-weight: bold;
 }
-
-
-
-
-
 
 ul {
   display: inline-flex;
